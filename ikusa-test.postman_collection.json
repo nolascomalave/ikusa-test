@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "b09f47bc-9832-4743-bdc8-34bc52660210",
+		"name": "ikusa-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Botella de Agua",
+							"type": "default"
+						},
+						{
+							"key": "brand",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "category",
+							"value": "Plástico",
+							"type": "default"
+						},
+						{
+							"key": "subcategory",
+							"value": "Envase",
+							"type": "default"
+						},
+						{
+							"key": "min_stock",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "initial_stock",
+							"value": "10",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "Se envían todos los parámetros por post:\n\n- name: Nombre.\n- brand: Marca.\n- category: Categoría.\n- subcategory: SubCategoría.\n- initial_stock: Cantidad inicial.\n- min_stock: Cantidad mínima de stock.\n\nDevuelve un objeto {errors, message, data}, y tres estados: 201, 406 (errores de envío de datos) y 500 (Si hay un error en el servidor)."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "Obtiene todos los productos ordenados por nombre.\n\nNo se le pasan parámetros.\n\nDevuelve un objeto {errors, message, data}, y dos estados: 200 y 500 (Si hay un error en el servidor)."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/62b8c91394ef70876fcac42a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"62b8c91394ef70876fcac42a"
+					]
+				},
+				"description": "Actualiza el producto especificado en la URL por su ID.\n\nhttp://localhost:3000/products/:ID\n\nExample:\nhttp://localhost:3000/products/62b8c91394ef70876fcac42a\n\nSe envían todos los parámetros por put a excepción del ID:\n\n- name: Nombre.\n- brand: Marca.\n- category: Categoría.\n- subcategory: SubCategoría.\n- initial_stock: Cantidad inicial.\n- min_stock: Cantidad mínima de stock.\n\nDevuelve un objeto {errors, message, data}, y cuatro estados: 200, 404 (no encontrado) 406 (errores de envío de datos) y 500 (Si hay un error en el servidor)."
+			},
+			"response": []
+		},
+		{
+			"name": "Find Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/62b8c91394ef70876fcac42a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"62b8c91394ef70876fcac42a"
+					]
+				},
+				"description": "Obtiene el producto especificado en la URL por su ID.\n\nhttp://localhost:3000/products/:ID\n\nExample:\nhttp://localhost:3000/products/62b8c91394ef70876fcac42a\n\nDevuelve un objeto {errors, message, data}, y tres estados: 200, 404 (no encontrado) y 500 (Si hay un error en el servidor)."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/62b8c91394ef70876fcac42a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"62b8c91394ef70876fcac42a"
+					]
+				},
+				"description": "Elimina el producto especificado en la URL por su ID.\n\nDevuelve un objeto {errors, message, data}, y cuatro 3: 200, 404 (no encontrado) y 500 (Si hay un error en el servidor)."
+			},
+			"response": []
+		}
+	]
+}
